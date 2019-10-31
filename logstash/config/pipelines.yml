@@ -1,0 +1,22 @@
+- pipeline.id: docker
+  pipeline.workers: 4
+  path.config: "/usr/share/logstash/pipeline/docker.conf"
+- pipeline.id: nginx
+  pipeline.workers: 4
+  path.config: "/usr/share/logstash/pipeline/nginx.conf"
+#pipeline.id: mylogs
+#config.string: "input { generator {} } filter { sleep { time => 1 } } output { stdout { codec => dots } }"
+#path.config: "/etc/conf.d/logstash/myconfig.cfg"
+#pipeline.workers: 1 (actually defaults to number of CPUs)
+#pipeline.batch.size: 125
+#pipeline.batch.delay: 50
+#queue.type: memory
+#queue.page_capacity: 64mb
+#queue.max_events: 0
+#queue.max_bytes: 1024mb
+#queue.checkpoint.acks: 1024
+#queue.checkpoint.writes: 1024
+#queue.checkpoint.interval: 1000
+#dead_letter_queue.enable: false
+#dead_letter_queue.max_bytes: 1024mb
+#path.dead_letter_queue:
