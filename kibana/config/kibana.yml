@@ -4,7 +4,7 @@ server.host: "0.0.0.0"
 #server.rewriteBasePath: false
 #server.maxPayloadBytes: 1048576
 #server.name: "your-hostname"
-elasticsearch.hosts: ["http://192.168.10.24:9200","http://192.168.10.24:9201","http://192.168.10.24:9202"]
+elasticsearch.hosts: ["http://192.168.10.24:9201","http://192.168.10.24:9202","http://192.168.10.24:9203"]
 #elasticsearch.preserveHost: true
 #kibana.index: ".kibana"
 #kibana.defaultAppId: "home"
