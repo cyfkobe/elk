@@ -1,0 +1,50 @@
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+setup.template.settings:
+  index.number_of_shards: 1
+
+filebeat.inputs:       
+- type: log
+  enabled: true
+  paths:
+    - "/var/lib/docker/containers/*/*.log"
+  json:    
+    json.keys_under_root: true
+    json.add_error_key: true
+    json.message_key: log
+  tail_files: true
+  processors:
+    - add_docker_metadata:
+        host: "unix:///var/run/docker.sock"
+  encoding: utf-8
+  max_bytes: 104857600 
+  tail_files: true
+  fields:
+    app_id: docker  
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+
+output.redis:
+  hosts: ["192.168.10.24:6380"]
+  password: "123456"
+  db: 0
+  key: "cyf"
+  keys:
+    - key: "%{[fields.list]}"
+      mappings:
+        app_id: "docker"
+  worker: 4
+  timeout: 20
+  max_retries: 3
+  codec.json:
+    pretty: false
+
+monitoring:
+  enabled: true
+  cluster_uuid: DJ4VBvgGSnyc2pcmB-ezjA
+  elasticsearch:
+    hosts: ["http://192.168.10.24:9201","http://192.168.10.24:9202","http://192.168.10.24:9203"] 
