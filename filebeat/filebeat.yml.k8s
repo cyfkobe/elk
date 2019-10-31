@@ -34,6 +34,9 @@ data:
       hosts: ['${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}']
       indices:
         - index: "docker-logs-pred-%{+yyyy.MM.dd}"
+    monitoring.enabled: true
+    monitoring.elasticsearch:
+      hosts: ['${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}']
 ---
 apiVersion: apps/v1
 kind: DaemonSet

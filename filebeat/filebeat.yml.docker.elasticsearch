@@ -34,8 +34,6 @@ output.elasticsearch:
   index: "docker-localhost-%{+yyyy.MM.dd}"
   worker: 4
 
-monitoring:
-  enabled: true
-  cluster_uuid: DJ4VBvgGSnyc2pcmB-ezjA
-  elasticsearch:
-    hosts: ["http://192.168.10.24:9201","http://192.168.10.24:9202","http://192.168.10.24:9203"] 
+monitoring.enabled: true
+monitoring.elasticsearch:
+  hosts: ["http://192.168.10.24:9201","http://192.168.10.24:9202","http://192.168.10.24:9203"]
