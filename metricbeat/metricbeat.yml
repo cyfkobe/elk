@@ -1,0 +1,24 @@
+metricbeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+setup.template.settings:
+  index.number_of_shards: 1
+
+processors:
+  - add_host_metadata: ~
+#  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+#  - add_kubernetes_metadata: ~
+
+output.redis:
+  hosts: ["192.168.10.24:6380"]
+  password: "123456"
+  db: 1
+  key: "metric"
+  timeout: 5
+
+monitoring.enabled: true
+monitoring.elasticsearch:
+  hosts: ["http://192.168.10.24:9201","http://192.168.10.24:9202","http://192.168.10.24:9203"]
+
