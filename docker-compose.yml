@@ -1,0 +1,31 @@
+version: '3'                                                                                                                                                                                  
+services:
+  es1:
+    container_name: es1
+    image: cuiyf/elasticsearch:7.2.0
+    ports:
+      - 9201:9201
+      - 9301:9301
+    volumes:
+      - ./es1/config/:/usr/share/elasticsearch/config
+      - ./es1/data/:/usr/share/elasticsearch/data
+
+  es2:
+    container_name: es2 
+    image: cuiyf/elasticsearch:7.2.0
+    ports:
+      - 9202:9202
+      - 9302:9302
+    volumes:
+      - ./es2/config/:/usr/share/elasticsearch/config
+      - ./es2/data/:/usr/share/elasticsearch/data
+
+  es3:
+    container_name: es3 
+    image: cuiyf/elasticsearch:7.2.0
+    ports:
+      - 9203:9203
+      - 9303:9303
+    volumes:
+      - ./es3/config/:/usr/share/elasticsearch/config
+      - ./es3/data/:/usr/share/elasticsearch/data
