@@ -13,8 +13,6 @@ filebeat.inputs:
     path: "/var/lib/docker/containers"
     ids:
       - '*'
-  processors:
-    - add_docker_metadata: ~
   encoding: utf-8
   max_bytes: 104857600 
   tail_files: true
@@ -24,8 +22,10 @@ filebeat.inputs:
 processors:
   - add_host_metadata: ~
   - add_cloud_metadata: ~
+  - add_docker_metadata: ~
 
 setup.template.enabled: true
+setup.template.overwrite: true
 setup.template.name: "docker-localhost"
 setup.template.pattern: "docker-localhost-*"
 setup.ilm.enabled: false

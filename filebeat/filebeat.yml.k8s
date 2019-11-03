@@ -27,6 +27,7 @@ data:
     cloud.id: ${ELASTIC_CLOUD_ID}
     cloud.auth: ${ELASTIC_CLOUD_AUTH}
     setup.template.enabled: true
+    setup.template.overwrite: true
     setup.template.name: "docker-logs-pred"
     setup.template.pattern: "docker-logs-pred-*"
     setup.ilm.enabled: false

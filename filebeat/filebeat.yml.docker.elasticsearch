@@ -26,6 +26,7 @@ processors:
   - add_cloud_metadata: ~
 
 setup.template.enabled: true
+setup.template.overwrite: true
 setup.template.name: "docker-localhost"
 setup.template.pattern: "docker-localhost-*"
 setup.ilm.enabled: false
