@@ -1,0 +1,22 @@
+input {
+  redis {
+    host => "192.168.10.24"
+    port => 6380
+    db => 1
+    key => "metric-localhost"
+    password => "123456"
+    data_type => "list"
+    threads => 2
+    tags => "metric-localhost"
+  }
+}
+
+output {
+  if "metric-localhost" in [tags] {
+    elasticsearch {
+      hosts => ["192.168.10.24:9201","192.168.10.24:9202","192.168.10.24:9203"]
+      index => "metric-localhost-%{+YYYY.MM.dd}"
+      }
+  }
+}
+

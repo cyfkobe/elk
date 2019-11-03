@@ -20,14 +20,14 @@ output {
   if "localhost" in [tags] {
     if [fields][app_id] == "nginx-access" {
         elasticsearch {                      
-        hosts => ["192.168.10.24:9200"] 
+        hosts => ["192.168.10.24:9201"] 
         index => "nginx-access-%{+YYYY.MM.dd}"
         #user => "admin"                   
         #password => "admin"  
         }
     } else if [fields][app_id] == "nginx-error" {
         elasticsearch {                      
-        hosts => ["192.168.10.24:9200"] 
+        hosts => ["192.168.10.24:9201"] 
         index => "nginx-error-%{+YYYY.MM.dd}"
         #user => "admin"                   
         #password => "admin"  
