@@ -21,10 +21,10 @@ docker run -d --name redis -p 6380:6380 -v /cyf/elk/redis/data/:/data redis:5.0 
 
 ## filebeat启动命令
 ```
-docker run -d --name filebeat --user=root -v /cyf/elk/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro -v /var/lib/docker:/var/lib/docker:ro -v /var/run/docker.sock:/var/run/docker.sock:ro cuiyf/filebeat:7.2.0
+docker run -d --name filebeat --hostname localhost --user=root -v /cyf/elk/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro -v /var/lib/docker:/var/lib/docker:ro -v /var/run/docker.sock:/var/run/docker.sock:ro cuiyf/filebeat:7.2.0
 ```
 
 ## metricbeat启动命令
 ```
-docker run -d --name metricbeat --user=root -v /cyf/elk/metricbeat/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro -v /var/run/docker.sock:/var/run/docker.sock:ro -v /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro -v /proc:/hostfs/proc:ro -v /:/hostfs:ro cuiyf/metricbeat:7.2.0
+docker run -d --name metricbeat --hostname localhost --user=root -v /cyf/elk/metricbeat/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro -v /var/run/docker.sock:/var/run/docker.sock:ro -v /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro -v /proc:/hostfs/proc:ro -v /:/hostfs:ro cuiyf/metricbeat:7.2.0
 ```
