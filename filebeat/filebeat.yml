@@ -13,6 +13,8 @@ filebeat.inputs:
     path: "/var/lib/docker/containers"
     ids:
       - '*'
+  processors:
+    - add_docker_metadata: ~
   encoding: utf-8
   max_bytes: 104857600 
   tail_files: true
@@ -22,7 +24,6 @@ filebeat.inputs:
 processors:
   - add_host_metadata: ~
   - add_cloud_metadata: ~
-  - add_docker_metadata: ~
 
 setup.template.enabled: true
 setup.template.overwrite: true
@@ -30,10 +31,10 @@ setup.template.name: "docker-localhost"
 setup.template.pattern: "docker-localhost-*"
 setup.ilm.enabled: false
 output.elasticsearch:
-  hosts: ["http://192.168.10.24:9201","http://192.168.10.24:9202","http://192.168.10.24:9203"]
+  hosts: ["http://192.168.10.44:9201","http://192.168.10.44:9202","http://192.168.10.44:9203"]
   index: "docker-localhost-%{+yyyy.MM.dd}"
   worker: 4
 
 monitoring.enabled: true
 monitoring.elasticsearch:
-  hosts: ["http://192.168.10.24:9201","http://192.168.10.24:9202","http://192.168.10.24:9203"] 
+  hosts: ["http://192.168.10.44:9201","http://192.168.10.44:9202","http://192.168.10.44:9203"]

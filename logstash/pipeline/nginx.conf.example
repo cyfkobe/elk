@@ -1,6 +1,6 @@
 input {
   redis {
-    host => "192.168.10.24"
+    host => "192.168.10.44"
     port => 6380
     db => 0
     key => "cyf"
@@ -20,14 +20,14 @@ output {
   if "localhost" in [tags] {
     if [fields][app_id] == "nginx-access" {
         elasticsearch {                      
-        hosts => ["192.168.10.24:9201"] 
+        hosts => ["192.168.10.44:9201","192.168.10.44:9203","192.168.10.44:9203"] 
         index => "nginx-access-%{+YYYY.MM.dd}"
         #user => "admin"                   
         #password => "admin"  
         }
     } else if [fields][app_id] == "nginx-error" {
         elasticsearch {                      
-        hosts => ["192.168.10.24:9201"] 
+        hosts => ["192.168.10.44:9201"] 
         index => "nginx-error-%{+YYYY.MM.dd}"
         #user => "admin"                   
         #password => "admin"  

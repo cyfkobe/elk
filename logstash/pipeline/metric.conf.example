@@ -1,6 +1,6 @@
 input {
   redis {
-    host => "192.168.10.24"
+    host => "192.168.10.44"
     port => 6380
     db => 1
     key => "metric-localhost"
@@ -14,7 +14,7 @@ input {
 output {
   if "metric-localhost" in [tags] {
     elasticsearch {
-      hosts => ["192.168.10.24:9201","192.168.10.24:9202","192.168.10.24:9203"]
+      hosts => ["192.168.10.44:9201","192.168.10.44:9202","192.168.10.44:9203"]
       index => "metric-localhost-%{+YYYY.MM.dd}"
       }
   }

@@ -17,11 +17,11 @@ setup.template.name: "metric-localhost"
 setup.template.pattern: "metric-localhost-*"
 setup.ilm.enabled: false
 output.elasticsearch:
-  hosts: ["http://192.168.10.24:9201","http://192.168.10.24:9202","http://192.168.10.24:9203"]
+  hosts: ["http://192.168.10.44:9201","http://192.168.10.44:9202","http://192.168.10.44:9203"]
   index: "metric-localhost-%{+yyyy.MM.dd}"
   worker: 2
 
 monitoring.enabled: true
 monitoring.elasticsearch:
-  hosts: ["http://192.168.10.24:9201","http://192.168.10.24:9202","http://192.168.10.24:9203"]
+  hosts: ["http://192.168.10.44:9201","http://192.168.10.44:9202","http://192.168.10.44:9203"]
 

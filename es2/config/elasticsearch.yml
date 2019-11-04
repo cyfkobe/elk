@@ -5,7 +5,7 @@ node.master: false
 node.data: true
 
 network.bind_host: 0.0.0.0
-network.publish_host: 192.168.10.24 
+network.publish_host: 192.168.10.44 
 
 http.port: 9202
 transport.tcp.port: 9302
@@ -13,5 +13,5 @@ transport.tcp.port: 9302
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 
-discovery.seed_hosts: ["192.168.10.24:9301","192.168.10.24:9302","192.168.10.24:9303"]
+discovery.seed_hosts: ["192.168.10.44:9301","192.168.10.44:9302","192.168.10.44:9303"]
 cluster.initial_master_nodes: ["node1"]
