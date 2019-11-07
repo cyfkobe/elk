@@ -1,0 +1,27 @@
+input {
+    redis {
+        host => "192.168.10.44"
+        port => 6380
+        db => 0
+        key => "docker-localhost"
+        password => "123456"
+        data_type => "list"
+        threads => 4
+        tags => "docker-localhost"
+    }
+}
+
+output {
+    if "docker-localhost" in [tags] {
+        if [fields][app_id] == "docker-localhost" {
+            elasticsearch {
+                hosts => ["192.168.10.44:9201","192.168.10.44:9202","192.168.10.44:9203"]
+                index => "docker-localhost-%{+YYYY.MM.dd}"
+                document_type => "%{[@metadata][type]}"
+                #user => "admin"
+                #password => "admin"
+            }
+        }
+    }
+}
+
