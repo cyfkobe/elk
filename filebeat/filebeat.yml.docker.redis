@@ -19,7 +19,7 @@ filebeat.inputs:
   max_bytes: 104857600 
   tail_files: true
   fields:
-    app_id: docker  
+    function: docker  
 
 processors:
   - add_host_metadata: ~
@@ -33,7 +33,7 @@ output.redis:
   keys:
     - key: "%{[fields.list]}"
       mappings:
-        app_id: "docker"
+        function: "docker"
   worker: 4 
   timeout: 20
   max_retries: 3

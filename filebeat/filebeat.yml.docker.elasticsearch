@@ -19,7 +19,7 @@ filebeat.inputs:
   max_bytes: 104857600 
   tail_files: true
   fields:
-    app_id: docker  
+    function: docker  
 
 processors:
   - add_host_metadata: ~
