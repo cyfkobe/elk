@@ -1,9 +1,7 @@
 - pipeline.id: docker
-  pipeline.workers: 2
   path.config: "/usr/share/logstash/pipeline/docker.conf"
-#- pipeline.id: nginx
-#  pipeline.workers: 4
-#  path.config: "/usr/share/logstash/pipeline/nginx.conf"
+- pipeline.id: nginx
+  path.config: "/usr/share/logstash/pipeline/nginx.conf"
 #- pipeline.id: metric
 #  pipeline.workers: 2
 #  path.config: "/usr/share/logstash/pipeline/metric.conf"
