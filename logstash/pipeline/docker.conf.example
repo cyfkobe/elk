@@ -12,8 +12,6 @@ input {
 }
 
 filter {
-    if "docker-localhost" in [tags] {
-    }
 }
 
 output {

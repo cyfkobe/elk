@@ -22,11 +22,16 @@ filter {
         date { 
             match => [ "[@metadata][timestamp]", "dd/MMM/yyyy:HH:mm:ss Z" ] 
         }
-        geoip { 
-            source => "remote_addr" 
+        geoip {
+            source => "remote_addr"
             fields => ["city_name", "continent_code", "country_code2", "country_code3", "country_name", "dma_code", "ip", "latitude", "longitude", "postal_code", "region_name", "timezone"]
             target => "geoip"
+            add_field => [ "[geoip][location]", "%{[geoip][longitude]}" ]
+            add_field => [ "[geoip][location]", "%{[geoip][latitude]}" ]
         }
+        mutate {
+            convert => [ "[geoip][location]", "float"]  
+        } 
     }
 }
 
