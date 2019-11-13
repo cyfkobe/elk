@@ -5,6 +5,9 @@ filebeat.config.modules:
 setup.template.settings:
   index.number_of_shards: 1
 
+processors:
+  - add_host_metadata: ~
+
 filebeat.inputs:       
 - type: docker
   enabled: true
