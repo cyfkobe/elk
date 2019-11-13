@@ -1,9 +1,10 @@
-- pipeline.id: docker
-  path.config: "/usr/share/logstash/pipeline/docker.conf"
-- pipeline.id: nginx
-  path.config: "/usr/share/logstash/pipeline/nginx.conf"
+#- pipeline.id: docker
+#  path.config: "/usr/share/logstash/pipeline/docker.conf"
+#- pipeline.id: nginx
+#  path.config: "/usr/share/logstash/pipeline/nginx.conf"
+- pipeline.id: localhost
+  path.config: "/usr/share/logstash/pipeline/localhost.conf"
 #- pipeline.id: metric
-#  pipeline.workers: 2
 #  path.config: "/usr/share/logstash/pipeline/metric.conf"
 #pipeline.id: mylogs
 #config.string: "input { generator {} } filter { sleep { time => 1 } } output { stdout { codec => dots } }"
