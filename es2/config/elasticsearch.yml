@@ -15,3 +15,5 @@ http.cors.allow-origin: "*"
 
 discovery.seed_hosts: ["192.168.10.44:9301","192.168.10.44:9302","192.168.10.44:9303"]
 cluster.initial_master_nodes: ["node1"]
+
+xpack.monitoring.collection.enabled: true
