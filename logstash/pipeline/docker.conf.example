@@ -11,9 +11,6 @@ input {
     }
 }
 
-filter {
-}
-
 output {
     if "docker-localhost" in [tags] {
         if [fields][function] == "docker-localhost" {
