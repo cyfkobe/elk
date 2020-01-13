@@ -24,20 +24,6 @@ filebeat.inputs:
   fields:
     function: "docker" 
 
-- type: log
-  enabled: true
-  paths:
-    - /cyf/elk/nginx/logs/access.log
-  fields:
-    function: "nginx-access"
-
-- type: log                 
-  enabled: true             
-  paths:                    
-    - /cyf/elk/nginx/logs/error.log
-  fields:                   
-    function: "nginx-error"
-
 output.redis:
   hosts: ["192.168.10.44:6380"]
   password: "123456"
@@ -47,9 +33,7 @@ output.redis:
     - key: "%{[fields.list]}"
       mappings:
         function: "docker"
-        function: "nginx-access"
-        function: "nginx-error"
-  worker: 4 
+  worker: 2 
   timeout: 20
   max_retries: 3
   codec.json:
