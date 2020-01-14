@@ -12,6 +12,7 @@ filebeat.inputs:
 - type: docker
   enabled: true
   combine_partial: true
+  stream: "all"
   containers:
     path: "/var/lib/docker/containers"
     ids:
