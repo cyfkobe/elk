@@ -29,3 +29,47 @@ services:
     volumes:
       - ./es3/config/:/usr/share/elasticsearch/config
       - ./es3/data/:/usr/share/elasticsearch/data
+
+  kibana:
+    container_name: kibana
+    image: cuiyf/kibana:7.2.0
+    ports:
+      - 5601:5601
+    volumes:
+      - ./kibana/config/:/usr/share/kibana/config/:ro
+      - ./kibana/plugins/:/usr/share/kibana/plugins/:ro
+    depends_on:
+      - es1
+      - es2
+      - es3
+
+  redis:
+    container_name: redis
+    image: redis:5.0
+    ports:
+      - 6380:6380
+    volumes:
+      - ./redis/data/:/data
+    command: ["redis-server", "redis.conf"]
+
+  logstash:
+    container_name: logstash
+    image: cuiyf/logstash:7.2.0
+    ports:
+      - 5044:5044
+      - 9600:9600
+    volumes:
+      - ./logstash/config/:/usr/share/logstash/config
+      - ./logstash/pipeline/:/usr/share/logstash/pipeline
+    depends_on:
+      - redis
+
+  filebeat:
+    container_name: filebeat
+    image: cuiyf/filebeat:7.2.0
+    hostname: filebeat
+    user: root
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
