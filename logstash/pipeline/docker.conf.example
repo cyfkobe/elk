@@ -11,6 +11,18 @@ input {
     }
 }
 
+filter {
+    grok {
+        match => {
+        "message" => "(?<datetime>\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}.\d{3})" #日志格式：2020-04-17 15:00:31.692
+        }
+    }
+    date {
+        match => ["datetime","yyyy-MM-dd HH:mm:ss.SSS"]
+        target => "@timestamp"
+    }
+}
+
 output {
     if "docker-localhost" in [tags] {
         if [fields][function] == "docker-localhost" {
