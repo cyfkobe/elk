@@ -29,7 +29,7 @@ output.redis:
   hosts: ["192.168.10.44:6380"]
   password: "123456"
   db: 0
-  key: "cyf"
+  key: "localhost"
   keys:
     - key: "%{[fields.list]}"
       mappings:
