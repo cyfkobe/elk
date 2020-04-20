@@ -11,6 +11,14 @@ input {
     }
 }
 
+filter {
+    grok {
+        match => {
+            "message" => "%{TIMESTAMP_ISO8601:logtime}\s+%{LOGLEVEL:loglevel}"
+        }
+    } 
+}
+
 output {
     if "docker-localhost" in [tags] {
         if [fields][function] == "docker-localhost" {
