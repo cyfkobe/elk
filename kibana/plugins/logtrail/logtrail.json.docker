@@ -25,7 +25,7 @@
                 "keyword_suffix" : "keyword"
             },
             "color_mapping" : {
-            "field": "log_level",
+            "field": "loglevel",
                 "mapping": {
                     "ERROR": "#FF0000",
                     "WARN": "#FFEF96",
