@@ -18,7 +18,7 @@ docker run -d --name es-head -p 9100:9100 mobz/elasticsearch-head:5
 
 ## cerebro插件
 ```
-docker run -d -p 9000:9000 lmenezes/cerebro:0.8.3
+docker run -d --name cerebro -p 9000:9000 lmenezes/cerebro:0.8.3
 ```
 
 ## kibana启动命令
