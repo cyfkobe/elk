@@ -16,6 +16,11 @@ docker run -d --name es-node3 -p 9203:9203 -p 9303:9303 -v /docker/elk/es3/confi
 docker run -d --name es-head -p 9100:9100 mobz/elasticsearch-head:5
 ```
 
+## cerebro插件
+```
+docker run -d -p 9000:9000 lmenezes/cerebro:0.8.3
+```
+
 ## kibana启动命令
 **注意手动开启监控，监控es，kibana和logstash监控**
 ```
