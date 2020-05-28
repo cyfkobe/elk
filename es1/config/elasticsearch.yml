@@ -8,7 +8,7 @@ network.bind_host: 0.0.0.0
 network.publish_host: 192.168.10.44 
 
 http.port: 9201
-transport.tcp.port: 9301
+transport.port: 9301
 
 http.cors.enabled: true
 http.cors.allow-origin: "*"
